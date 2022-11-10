@@ -12,4 +12,5 @@ class UserView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response({"message":"가입완료"}, status=status.HTTP_201_CREATED)
-        return Response({"message":f"${serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response({"message":f"${serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)
